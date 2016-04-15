@@ -25,7 +25,7 @@ namespace Helios.Reactor.Tcp
             : base(localAddress, localPort, eventLoop, encoder, decoder, allocator, SocketType.Stream, ProtocolType.Tcp, bufferSize)
         {
             LocalEndpoint = new IPEndPoint(localAddress, localPort);
-            Listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            Listener = new Socket(localAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
         }
 
         public override bool IsActive { get; protected set; }

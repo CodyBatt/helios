@@ -24,7 +24,7 @@ namespace Helios.Reactor
             Encoder = encoder;
             Allocator = allocator;
             LocalEndpoint = new IPEndPoint(localAddress, localPort);
-            Listener = new Socket(AddressFamily.InterNetwork, socketType, protocol);
+            Listener = new Socket(localAddress.AddressFamily, socketType, protocol);
             if (protocol == ProtocolType.Tcp) { Transport = TransportType.Tcp; } else if (protocol == ProtocolType.Udp) { Transport = TransportType.Udp; }
             Backlog = NetworkConstants.DefaultBacklog;
             EventLoop = eventLoop;
